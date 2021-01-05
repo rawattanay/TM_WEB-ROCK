@@ -206,7 +206,7 @@ example: arg[0]--> give the absolute or relative path to folder containing class
 >javac -classpath tmrock.jar;c:\itext7\*; c:\tomcat9\webapps\webrock\WEB-INF\classes\bobby c:\tomcat9\webapps\webrock\pdf
 ```
 ## Examples using TM_WEB-ROCK 
-# Exacmple :class Test
+# Example :class Test
 ```
 folder: WEB-INF/classes/bobby
 
@@ -351,7 +351,88 @@ System.out.println("Class test1 is executed with Prority:        3");
 }
 }//class eg1
 ```
-![alt tag](screen_Shots/jui.png "Description goes here")
+
+# Starting the server
+![alt tag](screen_Shots/StartingServer.png "Starting the Server(Tomcat)")
+# Execution of methods: 1
+![alt tag](screen_Shots/TestMethod1.png "Execution of methods: 1(add(int,int))")
+# Execution of methods: 2
+![alt tag](screen_Shots/TestMethod2.png "Execution of methods: 1(multiply(int,int))")
+# Execution of @AutoWired
+```
+@Path("/Test1")
+@Startup(priority=1)
+public class Test1
+{
+public void securedAccessTesting()
+{
+System.out.println("secured Acess Testing done Sucessfully.......");
+}
+@AutoWired(name="xyz")
+private int autoWiredTestingField;
+public void setAutoWiredTestingField(int x)
+{
+this.autoWiredTestingField=x;
+System.out.println("setAutoTestingField got called :-->"+this.autoWiredTestingField);
+}
+}//class Test1
+```
+![alt tag](screen_Shots/autoWiredTesting.png "@Autowired Testing")
+# Execution of Forward Annotation
+As @Forward("/index.jsp") is applied on add(int,int) of Test class thats why after execution of 'add' method it is forwarded to 'index.jsp'
+![alt tag](screen_Shots/forwardTesting.png "@Forward Testing")
+
+# @RequestScope and Security
+```
+Default: request.setAttribute("aaa",1000);
+Default: request.setAttribute("aaa",600);
+
+package bobby;
+class Test
+@Path("/sub1")
+@SecuredAccess(checkPost="bobby.bobby1.Test1",gaurd="securedAccessTesting")
+//@Forward("/Test1/add/10/90/200")
+public int sub1(@RequestParameter("aaa")int a,@RequestParameter("bbb")int b)
+{
+return a-b;
+}
+}//class Test
+```
+```
+package bobby.bobby1;
+public class Test1
+{
+public void securedAccessTesting()
+{
+System.out.println("secured Access Testing done Sucessfully.......");
+}
+```
+![alt tag](screen_Shots/securedAccessMethod "@RequestScope Testing")
+![alt tag](screen_Shots/securedSub.png "@RequestScope Testing")
+
+# JSON in request(@JSON)
+```
+@JSON
+@Path("/getEmp")
+public String getEmp(emp e)
+{
+String qq="";
+System.out.println("emp got called...");
+qq+="Name :"+e.name+"\n";
+qq+="Code :" +e.code+"\n";
+return qq;
+}
+```
+![alt tag](screen_Shots/jsonTest.png "@RequestScope Testing")
+
+# Declaring and Securing Classes and Methods to be accept GET/POST request 
+![alt tag](screen_Shots/getTypeRequest.png "GET type request but POST is allowed")
+![alt tag](screen_Shots/postTypeRequest.png "GET type request but POST is allowed")
+
+
+
+
+
 
 
 
