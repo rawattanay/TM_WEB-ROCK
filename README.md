@@ -353,7 +353,7 @@ System.out.println("Class test1 is executed with Prority:        3");
 ```
 
 # Starting the server
-![alt tag](screen_Shots/StartingServer.png "Starting the Server(Tomcat)")
+![alt tag](screen_Shots/startingServer.png "Starting the Server(Tomcat)")
 # Execution of methods: 1
 ![alt tag](screen_Shots/TestMethod1.png "Execution of methods: 1(add(int,int))")
 # Execution of methods: 2
