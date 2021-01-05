@@ -383,7 +383,7 @@ System.out.println("setAutoTestingField got called :-->"+this.autoWiredTestingFi
 ![alt tag](screen_Shots/autoWiredTesting.png "@Autowired Testing")
 # Execution of Forward Annotation
 As @Forward("/index.jsp") is applied on add(int,int) of Test class thats why after execution of 'add' method it is forwarded to 'index.jsp'
-![alt tag](screen_Shots/forwardTesting.png "@Forward Testing")
+![alt tag](screen_Shots/forwardTest.png "@Forward Testing")
 
 # @RequestScope and Security
 ```
@@ -414,6 +414,23 @@ System.out.println("secured Access Testing done Sucessfully.......");
 ![alt tag](screen_Shots/securedSub.png "@RequestScope Testing")
 
 # JSON in request(@JSON)
+.jsp file
+```
+<script>
+$(()=>{
+$("#b1").click(function(){
+var jsonString=JSON.stringify({"name":"Amit Sharma","code":123});
+$.ajax({
+        type: "POST",
+        url: "/webrock/schoolService/Test1/getEmp",
+        data: {jsonObject:jsonString,className:"bobby.bobby1.emp"},
+        success: function(result) {
+            window.console.log('Successful');
+        }
+    });
+
+```
+.class file
 ```
 @JSON
 @Path("/getEmp")
@@ -426,7 +443,7 @@ qq+="Code :" +e.code+"\n";
 return qq;
 }
 ```
-![alt tag](screen_Shots/jsonTest.png "@RequestScope Testing")
+![alt tag](screen_Shots/jsonTest.png "@JSON Request")
 
 # Declaring and Securing Classes and Methods to be accept GET/POST request 
 ![alt tag](screen_Shots/getTypeRequest.png "GET type request but POST is allowed")
