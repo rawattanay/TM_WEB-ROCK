@@ -410,7 +410,7 @@ public void securedAccessTesting()
 System.out.println("secured Access Testing done Sucessfully.......");
 }
 ```
-![alt tag](screen_Shots/securedAccessMethod "Security Testing")
+![alt tag](screen_Shots/securedAccessMethod.png "Security Testing")
 ![alt tag](screen_Shots/securedSub.png "Security Testing")
 
 # JSON in request(@JSON)
