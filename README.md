@@ -22,7 +22,8 @@ TM_WEB-ROCK provides a good platform for Java developers to develop a stand-alon
 <url-pattern>/TMWebRockStarter</url-pattern>
 </servlet-mapping>
 ```
-#  Providing/Mapping the name of js file to load to servlet class 'getJsFile' here Department.js is the file to be mapped
+#  Providing/Mapping the name of js file to load to servlet class 'getJsFile' 
+here Department.js is the file to be mapped
 ```
 <context-param>
 <param-name>JS_FILE</param-name>
@@ -59,7 +60,8 @@ TM_WEB-ROCK provides a good platform for Java developers to develop a stand-alon
 </servlet-mapping>
 ```
 
-#  Mapping up the Services of classes to url pattern(custom) that provides all the services, here url-Pattern :/schoolService ,class provided: 'com.thinking.machines.webrock.TMWebRock'
+#  Mapping up the Services of classes to url pattern(custom) that provides all the services
+here url-Pattern :/schoolService ,class provided: 'com.thinking.machines.webrock.TMWebRock'
 
 ```
 <servlet>
@@ -74,7 +76,8 @@ TM_WEB-ROCK provides a good platform for Java developers to develop a stand-alon
 ```
 
 
-# Getting js File mapped through Servlet, here jsFile :'Department.js'
+# Getting js File mapped through Servlet
+here jsFile :'Department.js'
 ```
 <script src='getJsFile?name=Department.js'></script>
 ```
@@ -153,8 +156,8 @@ class aaa
 }
 ```
 #  Providing Secured Access to method that have to run before the method mapped with it
-#  here class-Name: bobby.Test 
-#  here method-Name: checkLoginStatus
+here class-Name: bobby.Test 
+here method-Name: checkLoginStatus
 ```
 @SecuredAccess(checkPost="bobby.Test",gaurd="checkLoginStatus")
 public void getStudent
@@ -178,7 +181,8 @@ public int sub1(@RequestParameter("aaa")int a,@RequestParameter("bbb")int b)
 return a-b;
 }
 ```
-#  Providing value to be assigned to a field from Application,Session or RequestScope   :@AutoWired / Uses CamelCase methods Names for setters and getters
+#  Providing value to be assigned to a field from Application,Session or RequestScope   :@AutoWired 
+Uses CamelCase methods Names for setters and getters
 ```
 Path("\aaa")
 class aaa
@@ -195,8 +199,8 @@ System.out.println("setAutoTestingField got called---------------"+this.autoWire
 
 ###  Getting All the Services/Paths Provding to the annoted Classes And methods using TM_WEB-ROCK for exceution of the Services
 
-# uses tmrock.jar
-# pdf-Name: Services_Doc.jar
+uses tmrock.jar
+pdf-Name: Services_Doc.jar
 ```
 javac -classpath tmrock.jar;. ...path to the classes  ....path to the pdf to be generated
 
@@ -204,7 +208,7 @@ example: arg[0]--> give the absolute or relative path to folder containing class
 
 >javac -classpath tmrock.jar;c:\itext7\*; c:\tomcat9\webapps\webrock\WEB-INF\classes\bobby c:\tomcat9\webapps\webrock\pdf
 ```
-## Examples using TM_WEB-ROCK 
+
 # Example :class Test
 ```
 folder: WEB-INF/classes/bobby
@@ -269,7 +273,7 @@ System.out.println("Class test is executed with Prority:        4");
 }
 }//class eg1
 ```
-# Example class emp
+ Example class emp
 ```
 folder WEB-INF/bobby/bobby1
 
