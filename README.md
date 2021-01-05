@@ -22,7 +22,7 @@ TM_WEB-ROCK provides a good platform for Java developers to develop a stand-alon
 <url-pattern>/TMWebRockStarter</url-pattern>
 </servlet-mapping>
 ```
-#  Providing/Mapping the name of jsFile to load to servlet class 'getjsFle' here Department.js is the file to be mapped
+#  Providing/Mapping the name of js file to load to servlet class 'getJsFile' here Department.js is the file to be mapped
 ```
 <context-param>
 <param-name>JS_FILE</param-name>
