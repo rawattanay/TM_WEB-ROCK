@@ -351,7 +351,7 @@ System.out.println("Class test1 is executed with Prority:        3");
 }
 }//class eg1
 ```
-![alt tag](Libraries\Pictures\jui.png "Description goes here")
+![alt tag](screenShots/jui.png "Description goes here")
 
 
 
