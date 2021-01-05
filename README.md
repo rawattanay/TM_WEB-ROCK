@@ -10,7 +10,7 @@ TM_WEB-ROCK provides a good platform for Java developers to develop a stand-alon
 <param-value>..package-Name..</param-value>
 </context-param>
 ```
-# *Providing/Mapping the name StartingUp classs:TM_WEB-ROCK Starter_class
+# Providing/Mapping the name StartingUp classs:TM_WEB-ROCK Starter_class
 ```
 <servlet>
 <servlet-name>START_UP_SERVLET</servlet-name>
@@ -46,7 +46,7 @@ TM_WEB-ROCK provides a good platform for Java developers to develop a stand-alon
 </servlet-mapping>
 ```
 
-# *Mapping the getJs File to be loaded from servlet
+# Mapping the getJs File to be loaded from servlet
 ```
 <servlet>
 <servlet-name>GETJSFILE</servlet-name>
@@ -75,7 +75,7 @@ TM_WEB-ROCK provides a good platform for Java developers to develop a stand-alon
 ```
 
 
-# *Getting js File mapped through Servlet here jsFile Name:'Department.js'
+# Getting js File mapped through Servlet here jsFile Name:'Department.js'
 ```
 <script src='getJsFile?name=Department.js'></script>
 ```
@@ -114,7 +114,7 @@ System.out.println("set Session Scope method got called ");
 }
 }//class Test ends
 ```
-# *Declaring to inject ApplicationScope or RequestScope using @injectApplicationScope and @injectRequestScope
+# Declaring to inject ApplicationScope or RequestScope using @injectApplicationScope and @injectRequestScope
 ```
 @injectApplicationScope
 class Test
@@ -205,6 +205,154 @@ example: arg[0]--> give the absolute or relative path to folder containing class
 
 >javac -classpath tmrock.jar;c:\itext7\*; c:\tomcat9\webapps\webrock\WEB-INF\classes\bobby c:\tomcat9\webapps\webrock\pdf
 ```
+## Examples using TM_WEB-ROCK 
+# Exacmple :class Test
+```
+folder: WEB-INF/classes/bobby
+
+package bobby;
+import com.thinking.machines.webrock.annotations.*;
+import com.thinking.machines.webrock.*;
+import com.thinking.machines.webrock.model.*;
+import com.thinking.machines.webrock.services.*;
+@GET
+@Startup(priority=4)
+@Path("/Test")
+@injectSessionScope
+public class Test
+{
+private SessionScope sessionScope;
+public void setSessionScope(SessionScope sessionScope)
+{
+this.sessionScope=sessionScope;
+System.out.println("set Session Scope method got called ");
+}
+@Forward("/index.jsp")
+@Path("/add")
+public int add(int a,int b)
+{
+return a+b;
+}
+@POST
+@Path("/sub1")
+@SecuredAccess(checkPost="bobby.Test",gaurd="getStudent")
+public int sub1(@RequestParameter("aaa")int a,@RequestParameter("bbb")int b)
+{
+return a-b;
+}
+@POST
+@Path("/sub")
+public int sub(int a,int b)
+{
+return a-b;
+}
+@Forward("/Test1/add/10/90/200")
+@Path("/mul")
+public int mul(int a,int b)
+{
+return a*b;
+}
+
+@Path("/getStudent")
+@JSON
+public void getStudent(RequestScope rs,SessionScope ss,ApplicationScope as)
+{
+System.out.println("test_1 got called.....................");
+//System.out.println(i.name);
+//System.out.println(i.code);
+System.out.println(rs);
+System.out.println(ss);
+System.out.println(as);
+}
+public static void main(String gg[])
+{
+System.out.println("Class test is executed with Prority:        4");
+}
+}//class eg1
+```
+# Example class emp
+```
+folder WEB-INF/bobby/bobby1
+
+package bobby.bobby1;
+import com.thinking.machines.webrock.annotations.*;
+import com.thinking.machines.webrock.*;
+import com.thinking.machines.webrock.model.*;
+import com.thinking.machines.webrock.services.*;
+@Path("/emp")
+public class emp
+{
+private String name;
+private int code;
+@Path("/getName")
+public String getName()
+{
+return this.name;
+}
+public String setName()
+{
+return this.name;
+}
+}
+
+```
+# Example :class Test1
+```
+folder WEB-INF/classes/bobby/bobby1
+
+package bobby.bobby1;
+import com.thinking.machines.webrock.annotations.*;
+import com.thinking.machines.webrock.*;
+import com.thinking.machines.webrock.model.*;
+@injectSessionScope
+@injectApplicationScope
+@GET
+@Path("/Test1")
+public class Test1
+{
+public void securedAccessTesting()
+{
+System.out.println("secured Acess Testing done Sucessfully.......");
+}
+@AutoWired(name="xyz")
+private int autoWiredTestingField;
+public void setAutoWiredTestingField(int x)
+{
+this.autoWiredTestingField=x;
+System.out.println("setAutoTestingField got called---------------"+this.autoWiredTestingField);
+}
+public int getAutoWiredTestingField()
+{
+return this.autoWiredTestingField;
+}
+@Path("/add")
+public int add(int a,int b,int z)
+{
+return a+b+z;
+}
+@Path("/sub")
+public String sub(int a,int b)
+{
+return "subtract method got called and subtration is : "+(b-a);
+}
+@Path("/mul")
+public int mul(int a,int b,int c)
+{
+return a*b*c;
+}
+@Path("/emp1")
+public void emp1(emp e)
+{
+System.out.println("emp got called");
+}
+public static void main(String gg[])
+{
+System.out.println("Class test1 is executed with Prority:        3");
+}
+}//class eg1
+```
+![alt tag](Libraries\Pictures\jui.png "Description goes here")
+
 
 
 
