@@ -8,7 +8,7 @@ TM_WEB-ROCK provides a good platform for Java developers to develop a stand-alon
 |com.thinking.machines.pojo          |                                        Provides all the necessary details for the classes and methods that uses TM_WEB-ROCK.|
 |com.thinking.machines.services       |                                       Provides the classes for different 'scopes' with respect to J2ee architecture.|
 |com.thinking.machines.model           |                                      Provides necessary data structures for internal processing of TM_WEB-ROCK.|
-|tm_webrock.jar                                                              Generates pdf regarding all the services privided by TM_WEB-ROCK to classes that uses it.|
+|tm_webrock.jar                                                              |Generates pdf regarding all the services privided by TM_WEB-ROCK to classes that uses it.|
 
 # Uses and Examples
 
