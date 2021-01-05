@@ -59,8 +59,7 @@ TM_WEB-ROCK provides a good platform for Java developers to develop a stand-alon
 </servlet-mapping>
 ```
 
-#  Mapping up the Services class & url pattern(according to user) that provides all the services user has annoted or marked, here 
-#  url-Pattern :/schoolService  and class provided 'com.thinking.machines.webrock.TMWebRock'
+#  Mapping up the Services of classes to url pattern(custom) that provides all the services, here url-Pattern :/schoolService ,class provided: 'com.thinking.machines.webrock.TMWebRock'
 
 ```
 <servlet>
@@ -75,7 +74,7 @@ TM_WEB-ROCK provides a good platform for Java developers to develop a stand-alon
 ```
 
 
-# Getting js File mapped through Servlet here jsFile Name:'Department.js'
+# Getting js File mapped through Servlet, here jsFile :'Department.js'
 ```
 <script src='getJsFile?name=Department.js'></script>
 ```
