@@ -80,7 +80,7 @@ TM_WEB-ROCK provides a good platform for Java developers to develop a stand-alon
 ```
 
 #  Loading the classes to their priority provided by user using @Startup(priority=number)
-#  here class bbb will be loaded first then aaa according to priority: having '1' highest priority
+here class bbb will be loaded first then aaa according to priority: having '1' highest priority
 ```
 @Startup(priority=4)
 Class aaa
