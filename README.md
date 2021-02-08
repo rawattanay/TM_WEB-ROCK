@@ -103,7 +103,7 @@ public class Test
 {
 }
 ```
-# Declaring to inject Session Scope using @injectSeesionScope
+# Declaring to inject Session Scope using @injectSessionScope
 ```
 @injectSessionScope
 class Test
